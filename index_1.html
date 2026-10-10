@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Transplantaversary, JeJe</title>
+<meta name="description" content="Happy Transplantaversary, JeJe!">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#fff4fa">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script>
+/* =====================================================================
+   EDIT THESE SETTINGS — everything on the page comes from here.
+   ===================================================================== */
+const CONFIG = {
+  momName: "JeJe",
+  organ: "liver",                    // "liver", "kidney", or "both" (controls which health links show)
+  transplantDate: "2025-10-14",      // "YYYY-MM-DD" — leave "" to hide the counter
+
+  // VIDEO — use ONE of these:
+  youtubeId: "v_9uxCsFEoQ",          // unlisted YouTube video ID
+  videoFile: "tribute.mp4",          // or an .mp4 in the same folder (only used if youtubeId is "")
+  posterImage: "",                   // optional cover image for the .mp4
+
+  // PHOTOS (optional): stills from the video. Section stays hidden if empty.
+  photos: [
+    // { src: "photos/1.jpg", caption: "Christmas morning" },
+  ]
+};
+</script>
+<style>
+:root{
+  --bg:#fff4fa; --bg2:#e9f7ff; --card:#ffffff; --ink:#2d2346; --muted:#6b6185;
+  --pink:#ff4f9a; --purple:#8b5cf6; --mint:#14b8a6; --sun:#ffc93c; --sky:#38bdf8;
+  --line:#f1dcf0; --shadow:0 12px 30px rgba(139,92,246,.15);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1e1a2e; --bg2:#1b2a3a; --card:#2a2440; --ink:#fbf4ff; --muted:#c9bfe3;
+    --line:#3e3560; --shadow:0 12px 30px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1e1a2e; --bg2:#1b2a3a; --card:#2a2440; --ink:#fbf4ff; --muted:#c9bfe3;
+  --line:#3e3560; --shadow:0 12px 30px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:
+    radial-gradient(circle at 10% 0%, rgba(255,79,154,.18), transparent 40%),
+    radial-gradient(circle at 90% 10%, rgba(56,189,248,.20), transparent 40%),
+    radial-gradient(circle at 50% 100%, rgba(255,201,60,.18), transparent 50%),
+    var(--bg);
+  background-attachment:fixed;
+  color:var(--ink);
+  font:17px/1.6 Inter,system-ui,-apple-system,sans-serif;
+  -webkit-text-size-adjust:100%;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+.wrap{max-width:900px;margin:0 auto;padding:0 16px}
+h1,h2{font-family:Fraunces,Georgia,serif;font-weight:700;line-height:1.12;margin:0}
+h2{font-size:clamp(1.5rem,4vw,2rem);margin-bottom:.6rem}
+section{padding:36px 0}
+.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.75rem;font-weight:600;color:var(--purple)}
+
+/* Hero */
+header{text-align:center;padding:52px 0 22px}
+.deco{font-size:1.8rem;letter-spacing:.4rem}
+header h1{font-size:clamp(2.2rem,8.5vw,4rem);margin:.5rem 0}
+header h1 .grad{
+  background:linear-gradient(90deg,var(--pink),var(--purple) 50%,var(--sky));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+header h1 em{font-style:italic;font-weight:500;color:var(--pink)}
+.sub{color:var(--muted);font-size:1.05rem;max-width:34ch;margin:0 auto}
+.stats{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:22px}
+.stat{background:var(--card);border-radius:18px;padding:12px 18px;min-width:120px;box-shadow:var(--shadow);border-top:5px solid var(--c)}
+.stat b{display:block;font-family:Fraunces,serif;font-size:1.9rem;color:var(--c);line-height:1.1}
+.stat span{font-size:.8rem;color:var(--muted)}
+
+/* Video */
+.player{position:relative;border-radius:22px;overflow:hidden;background:#000;aspect-ratio:9/16;
+  width:min(100%, calc(82vh * 9 / 16));width:min(100%, calc(82svh * 9 / 16));margin:0 auto;
+  box-shadow:0 0 0 5px var(--card),0 0 0 9px var(--pink),var(--shadow)}
+.player video,.player iframe{width:100%;height:100%;display:block;border:0;object-fit:contain;background:#000}
+.playbtn{
+  position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+  background:linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.4));border:0;color:#fff;cursor:pointer;
+  font:600 1.1rem Inter,sans-serif;width:100%;
+}
+.playbtn .circle{width:92px;height:92px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--purple));display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.35);transition:transform .2s}
+.playbtn:active .circle,.playbtn:hover .circle{transform:scale(1.08)}
+.playbtn svg{width:38px;height:38px;margin-left:6px}
+.hint{text-align:center;color:var(--muted);font-size:.9rem;margin-top:16px}
+.err{display:none;padding:24px;text-align:center;color:#fff}
+
+/* Gallery */
+.strip{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 14px;-webkit-overflow-scrolling:touch}
+.strip figure{flex:0 0 78%;max-width:340px;margin:0;scroll-snap-align:center;background:var(--card);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+.strip img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.strip figcaption{padding:10px 14px;font-size:.92rem;color:var(--muted)}
+
+/* Gift of life */
+.gift{background:linear-gradient(135deg,rgba(255,201,60,.22),rgba(20,184,166,.18));border-radius:22px;padding:26px;box-shadow:var(--shadow);border:2px solid var(--card)}
+.gift .eyebrow{color:var(--mint)}
+.gift p{margin:.4rem 0 0;color:var(--ink)}
+
+/* Links */
+.links{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.link{display:block;background:var(--card);border-radius:16px;padding:16px 18px;text-decoration:none;color:var(--ink);box-shadow:var(--shadow);border-left:6px solid var(--c)}
+.link b{display:block;color:var(--c)}
+.link span{font-size:.9rem;color:var(--muted)}
+
+/* Footer */
+footer{text-align:center;padding:36px 0 56px}
+#qr{display:inline-block;background:#fff;padding:12px;border-radius:14px;margin:14px 0;box-shadow:var(--shadow)}
+#qr img,#qr canvas{display:block;width:160px;height:160px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--card);color:var(--ink);border:2px solid var(--line);border-radius:999px;padding:11px 22px;font:600 1rem Inter,sans-serif;cursor:pointer}
+
+/* Confetti */
+.heart{position:fixed;bottom:-40px;font-size:28px;pointer-events:none;animation:rise 4s ease-in forwards;z-index:50}
+@keyframes rise{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+@media (prefers-reduced-motion: reduce){.heart{display:none}}
+.hidden{display:none!important}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="deco" aria-hidden="true">🌷🦋🌸</div>
+    <h1><span class="grad">Happy Transplantaversary,</span><br><em id="name">JeJe</em>!</h1>
+    <p class="sub" id="subline">Celebrating the gift of life, and every day we get with you.</p>
+    <div class="stats" id="stats"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section style="padding-top:12px">
+    <div class="player" id="player">
+      <video id="video" playsinline preload="metadata" controls></video>
+      <button class="playbtn" id="playbtn" aria-label="Play the video">
+        <div class="circle"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></div>
+        <span id="playlabel">Tap to play</span>
+      </button>
+      <div class="err" id="err">The video couldn't load. Please check your connection and refresh the page.</div>
+    </div>
+    <p class="hint">Turn your sound up 🔊 &nbsp;·&nbsp; Tap the ⛶ button in the corner for full screen</p>
+  </section>
+
+  <section id="gallerySec" class="hidden">
+    <div class="eyebrow">Moments</div>
+    <h2>A few of our favorite moments</h2>
+    <div class="strip" id="gallery"></div>
+  </section>
+
+  <section>
+    <div class="gift">
+      <div class="eyebrow">The gift of life</div>
+      <h2>A second chance, and a reason to celebrate</h2>
+      <p id="giftText"></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Learn &amp; give back</div>
+    <h2>Health &amp; organ donation resources</h2>
+    <div class="links" id="links"></div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="eyebrow">Share this page</div>
+    <div id="qr"></div><br>
+    <button class="btn" id="copyBtn">🔗 Copy link</button>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+const C = CONFIG;
+
+$("name").textContent = C.momName;
+$("giftText").textContent =
+  "Because a donor and their family said yes, we get more birthdays, more holidays, more ordinary Tuesdays with " +
+  C.momName + ". This page is a thank-you to them, to the doctors and nurses, and to you for fighting so hard.";
+
+/* Anniversary counter */
+if (C.transplantDate) {
+  const start = new Date(C.transplantDate + "T00:00:00");
+  const now = new Date();
+  const days = Math.floor((now - start) / 86400000);
+  let years = now.getFullYear() - start.getFullYear();
+  if (now.getMonth() < start.getMonth() || (now.getMonth() === start.getMonth() && now.getDate() < start.getDate())) years--;
+  // If the next anniversary is within 30 days, celebrate it now (so the page works if shared a few days early)
+  const nextAnniv = new Date(start); nextAnniv.setFullYear(start.getFullYear() + years + 1);
+  if ((nextAnniv - now) / 86400000 <= 30) years++;
+  const sfx = n => { const v = n % 100; if (v >= 11 && v <= 13) return "th"; return ["th","st","nd","rd"][n % 10] || "th"; };
+  if (years >= 1) $("subline").textContent = "Celebrating your " + years + sfx(years) + " transplantaversary, and every day we get with you.";
+  $("stats").innerHTML =
+    (years >= 1 ? `<div class="stat" style="--c:var(--pink)"><b>${years}</b><span>year${years>1?"s":""} strong</span></div>` : "") +
+    `<div class="stat" style="--c:var(--mint)"><b>${days.toLocaleString()}</b><span>days of second chances</span></div>` +
+    `<div class="stat" style="--c:var(--purple)"><b>${start.toLocaleDateString(undefined,{month:"short",day:"numeric",year:"numeric"})}</b><span>the day it all changed</span></div>`;
+}
+
+/* Video */
+const video = $("video"), btn = $("playbtn");
+if (C.youtubeId) {
+  video.remove(); btn.remove();
+  const f = document.createElement("iframe");
+  f.src = "https://www.youtube-nocookie.com/embed/" + encodeURIComponent(C.youtubeId) + "?playsinline=1&rel=0";
+  f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+  f.allowFullscreen = true;
+  $("player").prepend(f);
+} else {
+  video.src = C.videoFile;
+  if (C.posterImage) video.poster = C.posterImage;
+  btn.addEventListener("click", () => { btn.classList.add("hidden"); video.play().catch(() => {}); });
+  video.addEventListener("play", () => btn.classList.add("hidden"));
+  video.addEventListener("ended", () => { burst(); $("playlabel").textContent = "Watch again"; btn.classList.remove("hidden"); });
+  video.addEventListener("error", () => { btn.classList.add("hidden"); video.classList.add("hidden"); $("err").style.display = "block"; });
+}
+
+/* Photos */
+const photos = (C.photos || []).filter(p => p && p.src);
+if (photos.length) {
+  $("gallerySec").classList.remove("hidden");
+  photos.forEach(p => {
+    const fig = document.createElement("figure");
+    const img = document.createElement("img");
+    img.src = p.src; img.alt = p.caption || ""; img.loading = "lazy";
+    fig.appendChild(img);
+    if (p.caption) { const cap = document.createElement("figcaption"); cap.textContent = p.caption; fig.appendChild(cap); }
+    $("gallery").appendChild(fig);
+  });
+}
+
+/* Resource links */
+const L = {
+  liver: [["American Liver Foundation", "https://liverfoundation.org", "Liver health info, support, and transplant resources"]],
+  kidney: [["National Kidney Foundation", "https://www.kidney.org", "Kidney health, living with a transplant, and patient support"]],
+  all: [
+    ["Register as an organ donor", "https://registerme.org", "Takes about a minute — the best way to honor a donor"],
+    ["Donate Life America", "https://donatelife.net", "Stories and facts about organ, eye, and tissue donation"],
+    ["UNOS", "https://unos.org", "How the U.S. transplant system works"],
+  ]
+};
+const colors = ["var(--pink)","var(--mint)","var(--purple)","var(--sky)","#f59e0b"];
+const list = [...(C.organ === "kidney" ? [] : L.liver), ...(C.organ === "liver" ? [] : L.kidney), ...L.all];
+list.forEach(([t, u, d], i) => {
+  const a = document.createElement("a"); a.className = "link"; a.href = u; a.target = "_blank"; a.rel = "noopener";
+  a.style.setProperty("--c", colors[i % colors.length]);
+  a.innerHTML = `<b></b><span></span>`; a.querySelector("b").textContent = t + " ↗"; a.querySelector("span").textContent = d;
+  $("links").appendChild(a);
+});
+
+/* QR (points to this page's own web address) + copy link */
+const url = location.href.split("#")[0];
+try { new QRCode($("qr"), { text: url, width: 320, height: 320, correctLevel: QRCode.CorrectLevel.M }); }
+catch (e) { $("qr").classList.add("hidden"); }
+$("copyBtn").addEventListener("click", async () => {
+  try { await navigator.clipboard.writeText(url); $("copyBtn").textContent = "✓ Copied"; }
+  catch (e) { prompt("Copy this link:", url); }
+});
+
+/* Spring confetti */
+function burst() {
+  const em = ["🌷","🦋","🌸","💖","🐣","🌼","💜"];
+  for (let i = 0; i < 26; i++) {
+    setTimeout(() => {
+      const h = document.createElement("div"); h.className = "heart";
+      h.textContent = em[i % em.length];
+      h.style.left = Math.random() * 95 + "vw";
+      document.body.appendChild(h);
+      setTimeout(() => h.remove(), 4200);
+    }, i * 110);
+  }
+}
+window.addEventListener("load", () => setTimeout(burst, 600));
+</script>
+</body>
+</html>
